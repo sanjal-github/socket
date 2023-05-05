@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creating the Socket</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"
+        integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
     <h1>This is Home Page</h1>
     <script>
         var socket = io();
+        // socket.on("broadcast",function(data){
+        //     document.body.innerHTML="";
+        //     document.write(data.message)
+        // })
+
+
+        socket.on("newUserConnect",function(data){
+            document.body.innerHTML="";
+            document.write(data.message)
+        })
+
+        //socket.emit('fromClient', { description: 'A custom message from the client side!'})
+
+
+        // //socket.on() catch the message throw by the server or the backend
+        // //this is the process of catching an event in the client throw by the server
+        // socket.on('myCustomEvent',function(data){
+        // //socket.on('message',function(data){
+        //     document.write(data.description);
+        //     document.write(data.message)
+        // })
     </script>
 </body>
+
 </html>
